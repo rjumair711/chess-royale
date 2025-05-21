@@ -5,12 +5,13 @@ import { Server } from 'socket.io';
 import { createServer } from 'http';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import AuthRoutes from './routes/AuthRoutes.js';
-import connectDB from './Database/DB.js';
 import session from 'express-session';
-import GameRoutes from './routes/GameRoutes.js'; // Adjust path if necessary
-import userModel from './model/User.js'; // adjust path as needed
-import { FriendRequestModel } from './model/FriendRequests.js';
+
+// ✅ Import routes and database
+import AuthRoutes from './routes/AuthRoutes.js';
+import GameRoutes from './routes/GameRoutes.js';
+import connectDB from './Database/DB.js';
+import userModel from './model/User.js';
 
 // ✅ Load environment variables
 dotenv.config();
@@ -19,49 +20,53 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
 // ✅ Initialize Express app
 const app = express();
 const server = createServer(app);
-
-// ✅ Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
 const corsOptions = {
-    origin: ["http://192.168.1.19:5500", "http://localhost:5500", "http://localhost:5000"], // Dev URLs
+    origin: ["http://localhost:5500", "http://192.168.1.19:5500"],
     methods: ["GET", "POST"],
     credentials: true
 };
-app.use(cors(corsOptions));
 
-app.use(session({
-    secret: process.env.SECRET_KEY, // Change this to a strong, random key
-    resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false } // Set to true if using HTTPS
-}));
+const io = new Server(server, { cors: corsOptions });
+export { io };
 
-
-app.use('/Images', express.static('Images')); // Serve static images
-app.use("/ChessImages", express.static(path.join(__dirname, "ChessImages")));
-app.use(express.static(path.join(__dirname, "Client"))); // Serve frontend files
-app.use(express.static(path.join(__dirname, "Client/Library"))); // Serve frontend files
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-
-
-// ✅ LiveReload (Only in Development)
-// ✅ Connect to the database
+// ✅ Connect to DB
 connectDB();
 
-// ✅ Authentication Routes
-app.use('/api/auth', AuthRoutes);
+// ✅ Middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Game Friend Request Routes
-app.use('/api/game', GameRoutes);
+app.use(cors({
+    origin: ["http://localhost:5500", "http://192.168.1.19:5500"],
+    methods: ["GET", "POST"],
+    credentials: true
+}));
 
-// ✅ Socket.io Setup
-export const io = new Server(server, { cors: corsOptions });
+app.use(session({
+    secret: process.env.SECRET_KEY || "default_secret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false }
+}));
+
+// ✅ Serve static assets (inside backend)
+app.use('/Images', express.static(path.join(__dirname, 'Images')));
+app.use('/ChessImages', express.static(path.join(__dirname, 'ChessImages')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// ✅ Serve frontend (Client is outside backend)
+const clientPath = path.join(__dirname, '..', 'Client');
+app.use(express.static(clientPath));
+app.use('/Library', express.static(path.join(clientPath, 'Library')));
+
+
+// ✅ API routes
+app.use("/api/auth", AuthRoutes);
+app.use("/api/game", GameRoutes);
+
 let players = {};
 
 let waiting = {
@@ -373,11 +378,11 @@ socket.on("gameResult", (data) => {
     });
 });
 
-
-// ✅ Serve Homepage
+// ✅ Homepage route
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "Client", "HTML", "Homepage.html"));
+    res.sendFile(path.join(clientPath, 'HTML', 'Homepage.html'));
 });
+
 
 // ✅ Start Server
 const PORT = process.env.PORT || 5000;

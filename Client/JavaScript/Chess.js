@@ -884,7 +884,6 @@ function updateOpponentUI(username, profilePicture) {
 }
 
 // Add Event Listener to Search Button
-// Add Event Listener to Search Button
 searchBtn.addEventListener('click', async () => {
   const opponentId = searchInput.value.trim();
   if (!opponentId) {

@@ -206,7 +206,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    background: linear-gradient(135deg, #474747, #2e2e2e);
     color: white;
     padding: 30px 40px;
     border-radius: 15px;
