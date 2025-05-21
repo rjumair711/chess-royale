@@ -1,0 +1,224 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(/Images/img.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-top: 80px;
+  overflow-y: hidden;
+}
+
+.form {
+  position: relative;
+  justify-content: center;
+  display: flex;
+  left: 450px;
+  top: 20px;
+  height: 430px;
+  width: 500px;
+  box-shadow: 5px 5px 40px 1px rgb(211, 208, 208);
+  background-color: rgb(39, 39, 39);
+}
+
+.tab-group {
+  display: flex;
+  position: relative;
+  left: 120px;
+  top: 10px;
+  text-decoration: none;
+  gap: 50px;
+  /* Reduced gap for better alignment */
+  list-style: none;
+  /* Removes bullet point */
+  padding: 0;
+  /* Removes default padding */
+  font-size: 30px;
+}
+
+#logo {
+  position: relative;
+  top: 80px;
+  filter: invert(100%) sepia(1) hue-rotate(180deg);
+  height: 50px;
+  left: -100px;
+}
+
+
+#signUpBtn,
+#logInBtn {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 800;
+}
+
+
+#signUpBtn {
+  position: relative;
+  left: 266px;
+  top: 10px;
+  background-color: rgb(209, 209, 209);
+  padding-bottom: 20px;
+  padding-right: 82px;
+  padding-top: 20px;
+  padding-left: 82px;
+}
+
+#logInBtn {
+  padding-bottom: 5px;
+  top: 10px;
+  position: relative;
+  left: 176px;
+  margin-left: 20px;
+  /* Ensures Log In isn't too close */
+  background-color: rgb(188, 189, 188);
+  padding-bottom: 20px;
+  padding-right: 87px;
+  padding-top: 20px;
+  padding-left: 87px;
+
+}
+
+.active-btn {
+  background-color: rgb(120, 120, 120) !important;
+  /* Darker color for active state */
+  color: white;
+  /* Change text color for better contrast */
+}
+
+#login {
+  position: relative;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  top: 85px;
+  padding: 5px;
+  left: -110px;
+  white-space: nowrap;
+}
+
+#email,
+#password {
+  display: flex;
+  gap: 5px;
+  position: relative;
+  top: 110px;
+  background-color: transparent;
+  border-bottom: 2px solid gray;
+  padding: 5px;
+  color: white;
+  padding-left: 15px;
+  height: 50px;
+  top: 10px;
+  width: 410px;
+  left: -430px;
+  border-radius: 5px;
+}
+
+#email {
+  position: relative;
+  top: 155px;
+}
+
+#password {
+  position: relative;
+  top: 185px;
+}
+
+#login-btn {
+  position: relative;
+  top: 213px;
+  width: 300px;
+  left: -380px;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+  box-shadow: 3px 3px;
+  height: 35px;
+  font-weight: 600;
+}
+
+#forget_Password {
+  position: relative;
+  color: whitesmoke;
+  left: -305px;
+  text-decoration: none;
+  cursor: pointer;
+  top: 230px;
+}
+
+.container-login {
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  display: flex;
+  width: 400px;
+  gap: 5px;
+  left: 500px;
+  top: -15px;
+  z-index: 1;
+}
+
+/* For warning (like alert) */
+/* Center position on screen */
+.toast-center-screen {
+  top: 10% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  position: fixed !important;
+  z-index: 9999;
+}
+
+/* Custom warning style */
+#toast-container>.custom-warning-toast {
+  background-color: #d9534f !important;
+  /* red */
+  color: white !important;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Custom success style */
+#toast-container>.custom-success-toast {
+  background-color: #5cb85c !important;
+  /* green */
+  color: white !important;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+@media (min-width: 1601px) and (max-width: 1920px) {
+
+  body {
+     height: 45vh;
+    background-image: url(/Images/img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -1cap;
+    background-color: white;
+    margin-top: 600px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+ }
+  .form {
+  position: relative;
+  justify-content: center;
+  display: flex;
+  left: 750px;
+  top: -300px;
+  height: 430px;
+  width: 500px;
+  box-shadow: 5px 5px 40px 1px rgb(211, 208, 208);
+  background-color: rgb(27, 26, 26);
+}
+
+}

@@ -1,0 +1,774 @@
+body {
+    background-color: rgb(0, 0, 0);
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#profile-img-container {
+    position: fixed;
+    top: 580px;
+    left: 70px;
+}
+
+#username-container {
+    top: 590px;
+    left: 122px;
+    color: white;
+    position: fixed;
+}
+
+/* Opponent Img Container */
+#opponent-img-container {
+    margin-top: -100px;
+    margin-left: -500px;
+}
+
+
+#opponent-username-container {
+    top: 37px;
+    left: 122px;
+    color: white;
+    position: fixed;
+}
+
+.bottom-display {
+    display: none;
+}
+
+#waiting-text {
+    width: 50vw;
+    text-align: center;
+    font-size: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35vh;
+    padding: 10px 20px;
+    background-color: rgba(46, 46, 46, 0.5);
+    /* Same RGB as #2e2e2e, but with 0.5 opacity */
+    color: white;
+    position: relative;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    top: 120px;
+    left: 70px;
+    position: fixed;
+    justify-content: space-around;
+}
+
+#myBoard {
+    width: 500px;
+    margin-top: -50px;
+}
+
+.time:hover {
+    background-color: gray;
+    cursor: pointer;
+    color: white;
+}
+
+#timerDisplay {
+    color: white;
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+#middle-container {
+    background-color: #2ecc71;
+    padding: 10px;
+    height: 95vh;
+    width: 350px;
+    position: fixed;
+    left: 600px;
+    top: 5px;
+}
+
+#parent-btn {
+    padding: 50px;
+    position: absolute;
+    top: 300px;
+    left: -10px;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#timer-select {
+    width: 70px;
+    height: 30px;
+}
+
+#play-btn {
+    width: 70px;
+    height: 30px;
+    padding: 6px;
+    border-radius: 3px;
+    background-color: #222;
+    border: none;
+    position: absolute;
+    left: 250px;
+    top: 50px;
+    color: white;
+}
+
+#add-friend {
+    width: 350px;
+    height: 150px;
+    margin-top: 50px;
+    background-color: rgb(226, 224, 224);
+}
+
+#add-friend h4 {
+    padding: 15px 0;
+    font-size: 25px;
+    text-align: center;
+}
+
+#search {
+    width: 250px;
+    height: 30px;
+    border: none;
+    position: relative;
+    top: -35px;
+    padding: 7px;
+}
+
+#search-btn {
+    width: 80px;
+    height: 44px;
+    background-color: #0063f8;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    position: relative;
+    top: -35px;
+    padding: 7px;
+}
+
+#friend-requests {
+    width: 300px;
+    overflow-y: auto;
+    max-height: 100px;
+    margin: 20px auto;
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+#requests-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#requests-list li {
+    background: #a8a8a8;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #000000;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+#requests-list li button {
+    padding: 6px 12px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#requests-list li button:hover {
+    background-color: #45a049;
+}
+
+#friend-requests::-webkit-scrollbar {
+    width: 6px;
+}
+
+#friend-requests::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 4px;
+}
+
+.win-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+}
+
+.win-message button {
+    margin-top: 20px;
+    background-color: #ffffff;
+    color: #27ae60;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.win-message button:hover {
+    background-color: #ecf0f1;
+}
+
+
+
+#black-timer,
+#white-timer {
+    font-size: 20px;
+    font-weight: bold;
+    z-index: -1;
+    position: fixed;
+    left: 430px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#black-timer {
+    color: rgb(255, 255, 255);
+    position: fixed;
+    top: 37px;
+}
+
+#white-timer {
+    color: rgb(255, 255, 255);
+    position: fixed;
+    top: 580px;
+}
+
+#leave {
+    background-color: rgb(255, 22, 22);
+    color: #000000;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    position: fixed;
+    top: 580px;
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal .buttons {
+    margin-top: 20px;
+}
+
+.modal button {
+    margin: 0 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+}
+
+
+/* Right Panel */
+.right-panel {
+    background: #222;
+    color: white;
+    position: fixed;
+    /* Or absolute, depending on your layout needs */
+    top: 5px;
+    right: 0;
+    height: 95vh;
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid white;
+    padding: 5px;
+}
+
+#score,
+#messages,
+#profile {
+    color: whitesmoke;
+    background-color: rgba(18, 243, 18, 0.356);
+    font-weight: 900;
+    cursor: pointer;
+    border: none;
+    border-right: 2px solid #333;
+    padding: 10px;
+    width: 90px;
+    position: relative;
+    top: -280px;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#score-section {
+    position: absolute;
+    left: 15px;
+    top: 62px;
+    height: 150px;
+    background-color: brown;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    width: 305px;
+    font-weight: 600;
+}
+
+#white-score,
+#black-score {
+    position: relative;
+    background-color: #e48d46;
+    width: 50px;
+    border-radius: 20px;
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    left: 70px;
+    margin: 0;
+    top: -23px;
+
+}
+
+#chances {
+    position: relative;
+    top: -7px;
+}
+
+#messages-section {
+    position: absolute;
+    top: 56px;
+    height: 518px;
+    width: 300px;
+    left: 15px;
+    background-color: #f3cb5c;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    /* Initially hidden */
+}
+
+
+#message-container {
+    position: absolute;
+    /* Change from relative to absolute */
+    left: 0;
+    /* Adjust position */
+    top: 0;
+    height: 487px;
+    background-color: #000000;
+    color: rgb(8, 8, 8);
+    padding: 10px;
+    width: 310px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+}
+
+#message {
+    width: 210px;
+    top: 491px;
+    height: 18px;
+    left: -15px;
+    border: none;
+    position: relative;
+    padding: 12px;
+    font-weight: 700;
+    color: rgb(19, 16, 16);
+    margin-bottom: 10px;
+}
+
+#send-btn {
+    width: 95px;
+    position: relative;
+    top: 440px;
+    left: 220px;
+    padding: 13px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#send-btn:hover {
+    background-color: #99f54d;
+}
+
+.mine {
+    background-color: #ffffff;
+    padding: 5px;
+    margin-top: 4px;
+    border-radius: 5px;
+    color: #000000;
+    align-self: flex-end;
+}
+
+.other {
+    background-color: #33ff00;
+    padding: 5px;
+    margin-top: 4px;
+    border-radius: 5px;
+    color: #000000;
+    align-self: flex-start;
+}
+
+
+/* Profile Info Container */
+/* Profile Info Container */
+#details {
+    height: 510px;
+    position: absolute;
+    /* Changed from relative to absolute to prevent layout shift */
+    top: 21px;
+    background-color: #f3cb5c;
+    color: rgb(78, 78, 78);
+    left: 180px;
+    /* Centers the profile section */
+    transform: translateX(-50%);
+    /* Centers the profile section */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 19px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    margin-top: 33px;
+    display: none;
+    /* Initially hidden */
+}
+
+/* Form Fields */
+#details p {
+    margin-bottom: -10px;
+    font-size: 16px;
+}
+
+
+/* Input fields inside the form */
+#details input[type="text"],
+#details input[type="email"] {
+    width: 90%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+}
+
+#details select {
+    width: 70%;
+    padding: 8px;
+    margin-top: 18px;
+    margin-left: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+}
+
+#details select {
+    font-size: 14px;
+}
+
+/* Save Button */
+#save-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 48px;
+}
+
+#save-btn:hover {
+    background-color: #218838;
+}
+
+/* Center position on screen */
+.toast-center-screen {
+    top: 10% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    position: fixed !important;
+    z-index: 9999;
+}
+
+#toast-container {
+    top: 2% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    position: fixed !important;
+    width: auto !important;
+    max-width: 350px;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: 9999 !important;
+}
+
+/* Center position on screen for individual toasts (optional) */
+.toast-center-screen {
+    transform: translateY(-10%) !important;
+}
+
+/* Custom warning style */
+#toast-container>.custom-warning-toast {
+    background-color: #f0ad4e !important;
+    /* amber/orange for warning */
+    color: white !important;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+/* Custom success style */
+#toast-container>.custom-success-toast {
+    background-color: #5cb85c !important;
+    /* green */
+    color: white !important;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+/* Custom error style */
+#toast-container>.custom-error-toast {
+    background-color: #d9534f !important;
+    /* bootstrap-like red */
+    color: white !important;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+
+@media (min-width: 1601px) and (max-width: 1920px) {
+
+
+.container {
+    display: flex;
+    top: 160px;
+    left: 70px;
+    position: fixed;
+    justify-content: space-around;
+}
+#myBoard {
+    width: 850px;
+    height: 800px;
+    margin-top: -50px;
+}
+
+
+#middle-container {
+    background-color: #2ecc71;
+    padding: 10px;
+    height: 97vh;
+    width: 350px;
+    position: fixed;
+    left: 1100px;
+    top: 5px;
+}
+
+/* Right Panel */
+.right-panel {
+    position: fixed;
+    top: 5px;
+    right: 0;
+    height: 97vh;
+    width: 420px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid white;
+    padding: 5px;
+}
+
+#score,
+#messages,
+#profile {
+    color: whitesmoke;
+    background-color: rgba(18, 243, 18, 0.356);
+    font-weight: 900;
+    cursor: pointer;
+    border: none;
+    border-right: 2px solid #333;
+    padding: 10px;
+    width: 90px;
+    position: relative;
+    top: -500px;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    /* Prevents text from breaking */
+}
+#score-section {
+    position: absolute;
+    left: 60px;
+    top: 72px;
+    height: 150px;
+}
+#messages-section {
+    position: absolute;
+    top: 60px;
+    height: 618px;
+    width: 360px;
+    left: 20px;
+    background-color: #f3cb5c;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    /* Initially hidden */
+}
+
+
+#message-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 590px;
+    width: 370px;
+
+}
+
+#message {
+    width: 267px;
+    top: 589px;
+    height: 18px;
+    left: -13px;
+    border: none;
+    position: relative;
+    padding: 12px;
+    font-weight: 700;
+    color: rgb(19, 16, 16);
+    margin-bottom: 10px;
+}
+
+#send-btn {
+    width: 95px;
+    position: relative;
+    top: 540px;
+    left: 280px;
+    padding: 13px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+#details {
+    height: 510px;
+    position: absolute;
+    top: 30px;
+    background-color: #f3cb5c;
+    color: rgb(78, 78, 78);
+    left: 215px;
+    width: 300px;
+}
+
+
+#profile-img-container {
+    position: fixed;
+    top: 995px;
+    left: 75px;
+}
+
+#username-container {
+    top: 1010px;
+    left: 125px;
+    color: white;
+    position: fixed;
+}
+
+/* Opponent Img Container */
+#opponent-img-container {
+    margin-top: -105px;
+    margin-left: -850px;
+}
+
+
+#opponent-username-container {
+    top: 63px;
+    left: 125px;
+    color: white;
+    position: fixed;
+}
+
+
+#leave {
+    padding: 10px;
+    position: fixed;
+    top: 1020px;
+    cursor: pointer;
+}
+
+#black-timer,
+#white-timer {
+    font-size: 30px;
+    font-weight: bold;
+    z-index: 10;
+    position: fixed;
+    left: 760px;
+}
+
+#black-timer {
+    color: rgb(255, 255, 255);
+    position: fixed;
+    top: 45px;
+}
+
+#white-timer {
+    color: rgb(255, 255, 255);
+    position: fixed;
+    top: 1000px;
+}
+}

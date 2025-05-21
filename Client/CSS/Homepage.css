@@ -1,0 +1,472 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45vh;
+    background-image: url(/Images/dashboard\ background\ img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* This is the key property */
+    background-position: center;
+    background-color: white;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: rgb(34, 3, 145);
+    color: white;
+    padding: 20px;
+    height: 94vh;
+    width: 200px;
+    margin-top: 348px;
+    position: fixed;
+    margin-left: -1125px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    position: relative;
+    top: -18px;
+    left: 0;
+}
+
+.sidebar h2 a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+    position: relative;
+}
+
+/* Button Styles */
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    background: #2a8cfc;
+    border-radius: 5px;
+}
+
+.sidebar ul li a:hover {
+    background: #969595;
+}
+
+.dropdown-lesson {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 210px;
+    background: #444;
+    min-width: 220px;
+    background-color: #07bcf3;
+    padding: 5px 0;
+    border-radius: 5px;
+    z-index: 100;
+}
+
+.dropdown-lesson li {
+    margin: 2px 0;
+}
+
+.dropdown-lesson li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    background: #444;
+}
+
+.dropdown-lesson li a:hover {
+    background: #07bcf3;
+}
+
+/* Show dropdown when hovering over parent */
+.lesson:hover .dropdown-lesson {
+    display: block;
+}
+
+
+#register-btn {
+    position: relative;
+    padding: 10px;
+    top: 25px;
+    cursor: pointer;
+    width: 150px;
+    font-weight: 800;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#login-btn {
+    position: relative;
+    top: 40px;
+    left: -1px;
+    background-color: #444;
+    width: 150px;
+    cursor: pointer;
+    padding: 10px;
+    font-weight: 800;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#register-btn,
+#login-btn {
+    background-color: #07bcf3;
+    border: none;
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 15px;
+    box-shadow: 3px 3px 15px 2px green;
+}
+
+#theme {
+    position: relative;
+    top: 200px;
+    border: none;
+    left: -5px;
+    cursor: pointer;
+    background-color: transparent;
+    font-weight: 800;
+    color: white;
+    font-size: 21px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#logout-btn {
+    display: block;
+    /* Ensures each button appears on a new line */
+    width: 40%;
+    /* Makes the button full-width */
+    padding: 10px;
+    margin: 10px 0;
+    background-color: transparent;
+    font-weight: 700;
+    /* Highlight logout button */
+    color: white;
+    left: -10px;
+    top: 230px;
+    position: relative;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+}
+
+#logout {
+    background-color: transparent;
+    font-weight: 700;
+    /* Highlight logout button */
+    color: black;
+    cursor: pointer;
+}
+
+.friend-icon-container {
+    position: absolute;
+    top: 37px;
+    left: 250px;
+    margin-left: -10px;
+    cursor: pointer;
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+}
+
+.opponent-info .friend-entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.opponent-info .username {
+    font-weight: bold;
+}
+
+.opponent-info .status {
+    font-style: italic;
+}
+
+
+#play {
+    height: 40px;
+    width: 50px;
+    top: 30px;
+    margin-left: 870px;
+    position: absolute;
+}
+
+.settings-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 810px;
+    margin-top: -185px;
+}
+
+.settings-icon {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    margin-left: -150px;
+    font-weight: 700;
+    background: rgb(33, 247, 247);
+    border-radius: 8px;
+    width: 180px;
+    z-index: 100;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+}
+
+.dropdown a:last-child {
+    border-bottom: none;
+}
+
+.dropdown a:hover {
+    background: whitesmoke;
+}
+
+/* Show dropdown on hover */
+.settings-container:hover .dropdown {
+    display: block;
+}
+
+
+#profile {
+    position: absolute;
+    top: 30px;
+    margin-left: 1050px;
+    background-color: transparent;
+    font-weight: 900;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    padding: 5px;
+    font-weight: 500;
+}
+
+#details {
+    width: 300px;
+    background-color: #2804cc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    height: 420px;
+    color: white;
+    position: relative;
+    left: 900px;
+    font-family: sans-serif;
+}
+
+#details h2 {
+    margin-top: 0;
+    color: white;
+    text-align: center;
+}
+
+#details input,
+#details select {
+    width: 60%;
+    margin: 4px 0;
+    padding: 6px;
+    color: white;
+    background-color: white;
+    border-radius: 4px;
+    color: black;
+    border: 1px solid #ccc;
+}
+
+#details button {
+    padding: 6px 12px;
+    background-color: #15a721;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#gameid-profile {
+    position: relative;
+    left: 20px;
+}
+
+#username-profile {
+    position: relative;
+    left: 15px;
+}
+
+#email-profile {
+    position: relative;
+    left: 41px;
+}
+
+#location-profile {
+    position: relative;
+    left: 24px;
+}
+
+#country-profile {
+    position: relative;
+    left: 28px;
+}
+
+#language-profile {
+    position: relative;
+    left: 18px;
+}
+
+#save-btn {
+    position: relative;
+    left: 110px;
+    width: 30%;
+    cursor: pointer;
+    top: 8px;
+    padding: 5px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-weight: 700;
+    border: none;
+}
+
+#save-btn:hover {
+    background-color: #0abd69;
+}
+
+/* Toastr */
+/* Center position on screen */
+.toast-center-screen {
+    top: 10% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    position: fixed !important;
+    z-index: 9999;
+}
+
+#toast-container {
+    top: 2% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    position: fixed !important;
+    width: auto !important;
+    max-width: 350px;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: 9999 !important;
+}
+
+/* Center position on screen for individual toasts (optional) */
+.toast-center-screen {
+    transform: translateY(-10%) !important;
+}
+
+/* Custom warning style */
+#toast-container>.custom-warning-toast {
+    background-color: #f0ad4e !important;
+    /* amber/orange for warning */
+    color: white !important;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Custom success style */
+#toast-container>.custom-success-toast {
+    background-color: #5cb85c !important;
+    /* green */
+    color: white !important;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    text-align: center;
+
+}
+
+/* Custom error style */
+#toast-container>.custom-error-toast {
+    background-color: #d9534f !important;
+    /* bootstrap-like red */
+    color: white !important;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    text-align: center;
+
+}
+
+/* Existing styles unchanged */
+
+/* Media query for large desktops/laptops (your friend's device, width around 1920px) */
+@media (min-width: 1601px) and (max-width: 1920px) {
+  body {
+     height: 45vh;
+    background-image: url(/Images/dashboard\ background\ img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -26cap;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: hidden;
+ }
+
+  .sidebar {
+    height: 100vh;
+    width: 250px; /* wider sidebar if you want */
+    margin-top: 640px; /* reset margin-top, fix position at top */
+    margin-left: -1620px; /* sidebar fixed to left edge */
+    position: fixed;
+    padding: 30px; /* maybe more padding for bigger screen */
+  }
+  #details {
+    position: relative;
+    left: 1180px;
+}
+.settings-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 810px;
+    margin-top: -380px;
+}
+.dropdown {
+    margin-left: -150px;
+}
+#theme {
+    top: 800px;
+    left: 25px;
+    position: absolute;
+    cursor: pointer;
+ }
+
+#logout-btn {
+    left: -17px;
+    top: 520px;
+    position: relative;
+    }
+}

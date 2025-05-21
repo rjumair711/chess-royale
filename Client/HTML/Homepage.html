@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Dashboard</title>
+    
+    <link rel="stylesheet" href="../CSS/Homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2><a href="../HTML/Homepage.html">Chess Royale</a></h2>
+            <nav>
+                <ul>
+                    <li><a href="../HTML/Chess.html"><i class="fa-solid fa-user-group"></i> Play with Friend</a></li>
+                    <li><a href="../HTML/Practice.html"><i class="fa-solid fa-graduation-cap"></i> Practice</a></li>
+
+                    <!-- Lessons Menu with Dropdown -->
+                    <li class="lesson">
+                        <a href="#">Lessons</a>
+                        <ul class="dropdown-lesson">
+                            <li><a href="https://www.chessable.com/?utm_source=chess.com&utm_medium=navigation&utm_campaign=learn_expanded" target="_blank"><i class="fa-solid fa-chess"></i> Chessable Courses</a></li>
+                        </ul>
+                    </li>
+                    <!-- Container where friend form will be shown --> 
+
+                    <li><a href="../HTML/Rules.html">Rules</a></li>
+
+                </ul>
+            </nav>
+            
+            <a href="../HTML/Register.html" style="text-decoration: none;"><button id="register-btn">Register</button></a>
+            <a href="../HTML/Login.html" style="text-decoration: none;"><button id="login-btn">Login</button></a>
+            <button id="theme">Theme</button>
+            <button id="logout-btn" style="display: none;">Logout</button>
+            
+        </aside>
+
+        <!-- Chess Play Image -->
+        <a href="../HTML/Chess.html"><img src="/Images/chess.png" id="play"/></a>
+
+        <!-- Settings Dropdown -->
+        <div class="settings-container">
+            <div class="settings-icon">⚙️</div>
+            <div class="dropdown">
+                <a href="#">Board and Pieces</a>
+                <a href="#">Themes</a>
+                <a href="#">Home Settings</a>
+                <a href="#" id="logout">Logout</a>
+            </div>
+        </div>
+
+        <!-- Profile Image -->
+        <img src="/Images/profile1.png" id="profile"/>
+    </div>
+
+    <script src="../JavaScript/Homepage.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Register.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="form">
+        <ul class="tab-group">
+            <li class="tab"><a href="./Register.html" id="signUpBtn">Register</a></li>
+            <li class="tab"><a href="./Login.html" id="logInBtn">Login</a></li>
+        </ul>   
+        <form method="post">
+            <img src="/Images/Logo.png" id="logo">
+            <h1 id="welcome-chess">Welcome to Chess Game!</h1> 
+            <input type="text" id="name" placeholder="Enter your Name" autocomplete="name" required>
+            <input type="email" id="email" placeholder="Enter your Email" autocomplete="email" required>
+            <input type="password" id="password" placeholder="Enter your Password" autocomplete="new-password" required>
+
+            <button id="register-btn">Join Now</button>
+        </form>
+    </div>
+    <script type="module" src="../JavaScript/register.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+</body>
+</html>

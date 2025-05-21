@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Library/chessboardjs-1.0.0/css/chessboard-1.0.0.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/1.0.0/chess.min.js"></script>
+    <link rel="stylesheet" href="../CSS/Chess.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../Library/mainChess.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Chess</title>
+</head>
+
+<body>
+    <div id="main-element" class="container">
+        <div id="myBoard"></div>
+
+        <div id="opponent-img-container" class="hidden"></div>
+        <div id="opponent-username-container"></div>
+
+        <div id="profile-img-container"></div>
+        <div id="username-container"></div>
+
+        <div id="middle-container">
+            <div id="parent-btn" class="hidden">
+                <label for="timer-select">Choose Time:</label>
+                <select id="timer-select">
+                  <option data-time="10" value="10">10 min</option>
+                  <option data-time="15" value="15">15 min</option>
+                  <option data-time="20" value="20">20 min</option>
+                </select>
+                <button id="play-btn">Play</button>
+            </div>
+            <div id="add-friend">
+                <h4>Play with Friend</h4>
+                <input type="text" id="search" name="search" value="" placeholder="Enter Game ID" />
+                <button id="search-btn">Send</button>
+            </div>
+            <div id="friend-requests" class="hidden">
+                <ul id="requests-list"></ul>
+            </div>
+            <div id="pending-requests" class="hidden">
+              </div>              
+            <button type="button" id="leave" class="hidden">Leave Game</button>
+            <div id="leave-confirmation" class="overlay hidden">
+               <div class="modal">
+                  <p>Are you sure you want to leave the game?</p>
+                    <div class="buttons">
+                       <button id="confirm-yes">Yes</button>
+                       <button id="confirm-no">No</button>
+                    </div>
+               </div>
+           </div>
+        </div>
+    </div>
+
+    <p id="waiting-text" class="bottom-display">Waiting for opponent to join...</p>
+    <div id="win-message" class="win-message hidden">
+        <p id="winner-text"></p>
+        <button id="play-again-btn">Play Again</button>
+
+    </div>
+    <div id="black-timer" class="hidden">Black: <span id="blackTimerDisplay"></span></div>
+    <div id="white-timer" class="hidden">White: <span id="whiteTimerDisplay"></span></div>
+
+    <aside class="right-panel" id="right-panel">
+        <button id="score">Score</button>
+        <button id="messages">Messages</button> 
+        <button id="profile">Profile</button>
+    </aside>
+
+    <script src="../Library/chessboardjs-1.0.0/js/chessboard-1.0.0.min.js"></script>
+    <script src="../JavaScript/Chess.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+</body>
+
+</html>
