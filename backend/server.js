@@ -24,7 +24,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const server = createServer(app);
 const corsOptions = {
-    origin: ["http://localhost:5500", "http://192.168.1.19:5500"],
+    origin: ["http://localhost:5500", "http://192.168.1.19:5500", "https://chess-royale-production-3976.up.railway.app"],
     methods: ["GET", "POST"],
     credentials: true
 };
