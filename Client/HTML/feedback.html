@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input,
+    textarea {
+      margin-bottom: 15px;
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border 0.3s, box-shadow 0.3s;
+      font-size: 16px;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #00c6ff;
+      box-shadow: 0 0 5px rgba(0, 198, 255, 0.5);
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background: #00c6ff;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #007cf0;
+      transform: scale(1.03);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+     .toast-center-screen {
+    top: 10% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    position: fixed !important;
+    z-index: 9999;
+  }
+
+  #toast-container {
+    top: 2% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    position: fixed !important;
+    width: auto !important;
+    max-width: 350px;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: 9999 !important;
+  }
+
+  #toast-container>.custom-success-toast {
+    background-color: #5cb85c !important;
+    color: white !important;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  #toast-container>.custom-error-toast {
+    background-color: #d9534f !important;
+    color: white !important;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  #toast-container>.custom-warning-toast {
+    background-color: #f0ad4e !important;
+    color: white !important;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .back-to-home {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: #6d6d6d;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.back-to-home:hover {
+  background-color: #007cf0;
+}
+
+  </style>
+</head>
+
+<body>
+  <a href="Homepage.html" class="back-to-home">Back to Home</a>
+
+  <form action="http://localhost/submit_feedback.php" method="POST">
+    <h2>Give Us Feedback</h2>
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Feedback" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+  <!-- ✅ Toastr CSS/JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<!-- ✅ Toast Logic -->
+<script>
+  function showCustomToast(type, message) {
+    toastr.options = {
+      toastClass: type === "success" ? "custom-success-toast" : type === "error" ? "custom-error-toast" : "custom-warning-toast",
+      iconClasses: {
+        success: "custom-success-toast",
+        warning: "custom-warning-toast",
+        error: "custom-error-toast"
+      },
+      positionClass: "toast-center-screen",
+      timeOut: 3000,
+      closeButton: true,
+    };
+    toastr[type](message);
+  }
+
+  // ✅ Detect status from query string and show toast
+  const urlParams = new URLSearchParams(window.location.search);
+  const status = urlParams.get('status');
+  if (status === 'success') {
+    showCustomToast("success", "Feedback submitted successfully!");
+
+  } else if (status === 'error') {
+    showCustomToast("error", "Something went wrong. Please try again.");
+  }
+</script>
+</body>
+
+</html>

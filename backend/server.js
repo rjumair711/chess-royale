@@ -24,7 +24,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const server = createServer(app);
 const corsOptions = {
-    origin: ["http://localhost:5500", "http://192.168.1.19:5500", "https://chess-royale-production-3976.up.railway.app"],
+    origin: ["http://localhost:5500", "http://192.168.1.19:5500"],
     methods: ["GET", "POST"],
     credentials: true
 };
@@ -387,6 +387,6 @@ app.get("/", (req, res) => {
 // ✅ Start Server
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, '0.0.0.0', () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 });
