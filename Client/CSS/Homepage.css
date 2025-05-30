@@ -138,7 +138,7 @@ body {
 
 #theme {
     position: relative;
-    top: 200px;
+    top: 160px;
     border: none;
     left: -5px;
     cursor: pointer;
@@ -161,7 +161,7 @@ body {
     /* Highlight logout button */
     color: white;
     left: -10px;
-    top: 230px;
+    top: 160px;
     position: relative;
     border: none;
     border-radius: 5px;

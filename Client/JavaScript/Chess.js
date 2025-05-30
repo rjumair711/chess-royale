@@ -129,7 +129,7 @@ function onSnapEnd() {
 
   // Check win condition after visual update
   if (!gameEnded) {
-    if (whiteScore >= 2) {
+    if (whiteScore >= 4) {
       gameEnded = true;
       displayWinMessage("White won!");
       socket.emit("game_over", "White");
@@ -138,7 +138,7 @@ function onSnapEnd() {
       gameHistory.push({ result, timestamp: Date.now(), winner: "white" });
       localStorage.setItem("gameHistory", JSON.stringify(gameHistory));
 
-    } else if (blackScore >= 2) {
+    } else if (blackScore >= 4) {
       gameEnded = true;
       displayWinMessage("Black won!");
       socket.emit("game_over", "Black");
@@ -670,10 +670,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 throw new Error(errorText || "Unknown error occurred.");
               }
 
-              alert("Profile updated successfully!"); // Success feedback
+         toastr.success('Profile updated successfully!');
             } catch (error) {
-              alert("Failed to update profile: " + error.message);
-            }
+        toastr.warning('Failed to update profile!');
+             }
           });
       } catch (error) {
         console.error(error);
